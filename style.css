@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    background-color: #efefef;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    width: 100%;
+    height: 85px;
+    background-color: #3b82f6;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 110px;
+    height: auto;
+    margin-right: 110px;
+}
+
+.accueil1,
+.catalogue1,
+.mondeck1,
+.video1,
+.contact1 {
+    margin: 0 70px 0 0;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Section hero avec le personnage et le titre */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 80px;
+    background-color: #efefef;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.hero-texte {
+    color: #3b82f6;
+    max-width: 500px;
+}
+
+.hero-titre {
+    font-size: 48px;
+    margin: 0 0 15px 0;
+    color: #3b82f6;
+}
+
+.hero-sous-titre {
+    font-size: 20px;
+    margin: 0;
+    color: #3b82f6;
+}
+
+/* Image du personnage qui flotte */
+.hero-perso {
+    height: 350px;
+    object-fit: contain;
+    animation: flotter 3s ease-in-out infinite;
+}
+
+/* Animation flottante : monte et descend en boucle */
+@keyframes flotter {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Titre du catalogue */
+.titre-catalogue {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 50px 0 30px 0;
+}
+
+/* Le conteneur des cartes : grille automatique */
+/* grid = disposition en colonnes automatiques */
+/* repeat(auto-fill, 200px) = autant de colonnes de 200px que possible */
+#grille-cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 25px;
+    justify-content: center;
+    padding: 20px 40px 60px 40px;
+}
+
+/* Chaque carte individuelle */
+.carte {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+    /* animation douce au survol */
+}
+
+/* Au survol : la carte monte légèrement */
+.carte:hover {
+    transform: translateY(-6px);
+}
+
+/* L'image dans la carte */
+.carte img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Le nom du personnage */
+.nom-carte {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 10px 8px 4px 8px;
+}
+
+/* La race du personnage */
+.race-carte {
+    font-size: 13px;
+    color: #3b82f6;
+    margin: 0 8px 12px 8px;
+    font-style: italic;
+}
+
+#filtres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 20px 10px 20px;
+}
+
+.btn-filtre {
+    padding: 8px 18px;
+    border: 2px solid #3b82f6;
+    background: white;
+    color: #3b82f6;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-filtre:hover,
+.btn-filtre.actif {
+    background: #3b82f6;
+    color: white;
+}
