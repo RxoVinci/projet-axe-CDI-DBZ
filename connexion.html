@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kakarot présentation super saiyan blue</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <header>
         <img class="logo" src="Dragon_Ball_Z_logo.svg" alt="logo">
         <button id="btn-menu" onclick="ouvrirMenu()">☰</button>
@@ -18,33 +17,21 @@
         <p class="mondeck1" onclick="window.location.href='decks.html'" style="cursor:pointer">Mon deck</p>
         <p class="video1" onclick="window.location.href='tournois.html'" style="cursor:pointer">Vidéos</p>
         <p class="contact1" onclick="window.location.href='contact.html'" style="cursor:pointer">Contact</p>
-        <button id="btn-dark" onclick="basculerMode()">🌙</button>
+        <button id="btn-dark" onclick="basculerMode()">Sombre</button>
     </header>
 
-    <div id="menu-mobile">
-        <p onclick="fermerMenu()">✕</p>
-        <p onclick="window.location.href='Index.html'">Accueil</p>
-        <p onclick="window.location.href='connexion.html'">Connexion</p>
-        <p onclick="window.location.href='decks.html'">Decks Communauté</p>
-        <p onclick="window.location.href='tournois.html'">Tournois</p>
-    </div>
-
-    <div class="hero">
-        <div class="hero-texte">
-            <h1 class="hero-titre">Collection Dragon Ball Z</h1>
-            <p class="hero-sous-titre">Découvrez, collectionnez et échangez vos cartes</p>
+    <div class="page-contenu">
+        <h2>Connexion</h2>
+        <div class="formulaire">
+            <input type="email" placeholder="Adresse email" class="champ-input">
+            <input type="password" placeholder="Mot de passe" class="champ-input">
+            <button class="btn-connexion">Se connecter</button>
+            <p class="lien-inscription">Pas encore inscrit ? <span onclick="alert('Inscription bientôt disponible')"
+                    style="cursor:pointer;color:#3b82f6">Créer un compte</span></p>
         </div>
-        <img class="hero-perso" src="goku.png" alt="Goku">
     </div>
-
-    <div id="filtres"></div>
-
-    <h2 class="titre-catalogue">Catalogue des personnages</h2>
-
-    <div id="grille-cartes"></div>
 
     <script src="main.js"></script>
-
 </body>
 
 </html>

@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail personnage</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,10 +18,15 @@
         <p class="contact1" onclick="window.location.href='contact.html'" style="cursor:pointer">Contact</p>
         <button id="btn-dark" onclick="basculerMode()">Sombre</button>
     </header>
-
-    <div id="detail-perso"></div>
-
-    <script src="carte.js"></script>
+    <div class="page-contenu">
+        <h2>Contactez-nous</h2>
+        <div class="formulaire">
+            <input type="text" placeholder="Votre nom" class="champ-input">
+            <input type="email" placeholder="Votre email" class="champ-input">
+            <textarea placeholder="Votre message" class="champ-input" style="height:120px;resize:none;"></textarea>
+            <button class="btn-connexion" onclick="alert('Message envoyé !')">Envoyer</button>
+        </div>
+    </div>
 </body>
 
 </html>
