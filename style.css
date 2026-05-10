@@ -270,3 +270,43 @@ body.dark .nom-carte {
         display: block;
     }
 }
+
+
+.detail-carte {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.detail-carte img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.detail-infos h1 {
+    font-size: 42px;
+    color: #3b82f6;
+    margin: 0 0 20px 0;
+}
+
+.detail-infos p {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin: 10px 0;
+}
+
+.detail-infos button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
