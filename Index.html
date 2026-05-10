@@ -12,6 +12,7 @@
 
     <header>
         <img class="logo" src="Dragon_Ball_Z_logo.svg" alt="logo">
+        <button id="btn-menu" onclick="ouvrirMenu()">☰</button>
         <p class="accueil1">Accueil</p>
         <p class="catalogue1">Catalogue</p>
         <p class="mondeck1">Mon deck</p>
@@ -19,6 +20,15 @@
         <p class="contact1">Contact</p>
         <button id="btn-dark" onclick="basculerMode()">🌙</button>
     </header>
+
+    <div id="menu-mobile">
+        <p onclick="fermerMenu()">✕</p>
+        <p>Accueil</p>
+        <p>Catalogue</p>
+        <p>Mon deck</p>
+        <p>Vidéos</p>
+        <p>Contact</p>
+    </div>
 
     <div class="hero">
         <div class="hero-texte">

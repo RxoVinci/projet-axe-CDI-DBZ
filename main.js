@@ -25,82 +25,90 @@ document.addEventListener("DOMContentLoaded", function () {
 function afficherCartes(personnages) {
     var conteneur = document.getElementById("grille-cartes");
 
-    // On vide le conteneur avant d'afficher
-    conteneur.innerHTML = "";
+    carte.innerHTML =
+        "<img src='" + perso.image + "' alt='" + perso.name + "'>" +
+        "<p class='nom-carte'>" + perso.name + "</p>" +
+        "<p class='race-carte'>" + perso.race + "</p>";
 
-    personnages.forEach(function (perso) {
-        var carte = document.createElement("div");
-        carte.className = "carte";
-        carte.innerHTML =
-            "<img src='" + perso.image + "' alt='" + perso.name + "'>" +
-            "<p class='nom-carte'>" + perso.name + "</p>" +
-            "<p class='race-carte'>" + perso.race + "</p>";
-        conteneur.appendChild(carte);
-    });
-}
-
-
-function creerFiltres(personnages) {
-    var conteneurFiltres = document.getElementById("filtres");
-
-    // On récupère toutes les races sans doublon
-    // map = "pour chaque perso, prends juste sa race"
-    // filter = "garde seulement les valeurs uniques"
-    var races = personnages.map(function (p) { return p.race; });
-    var racesUniques = races.filter(function (race, index) {
-        return races.indexOf(race) === index;
+    /* Au clic sur la carte, on affiche les détails du personnage */
+    carte.addEventListener("click", function () {
+        alert(perso.name + "\nRace : " + perso.race + "\nAffiliation : " + perso.affiliation);
     });
 
-    // Bouton "Tous" pour réinitialiser le filtre
-    var btnTous = document.createElement("button");
-    btnTous.textContent = "Tous";
-    btnTous.className = "btn-filtre actif";
-    btnTous.addEventListener("click", function () {
-        // Au clic : on affiche tous les persos
-        afficherCartes(tousLesPersonnages);
-        // On retire la classe "actif" de tous les boutons
-        document.querySelectorAll(".btn-filtre").forEach(function (b) {
-            b.classList.remove("actif");
+    /* Curseur pointer pour montrer que c'est cliquable */
+    carte.style.cursor = "pointer";
+
+    function creerFiltres(personnages) {
+        var conteneurFiltres = document.getElementById("filtres");
+
+        // On récupère toutes les races sans doublon
+        // map = "pour chaque perso, prends juste sa race"
+        // filter = "garde seulement les valeurs uniques"
+        var races = personnages.map(function (p) { return p.race; });
+        var racesUniques = races.filter(function (race, index) {
+            return races.indexOf(race) === index;
         });
-        btnTous.classList.add("actif");
-    });
-    conteneurFiltres.appendChild(btnTous);
 
-    // Un bouton par race
-    racesUniques.forEach(function (race) {
-        var btn = document.createElement("button");
-        btn.textContent = race;
-        btn.className = "btn-filtre";
-
-        btn.addEventListener("click", function () {
-            // Au clic : on filtre le tableau global par race
-            var filtres = tousLesPersonnages.filter(function (p) {
-                return p.race === race;
-            });
-            afficherCartes(filtres);
-
-            // Style visuel : bouton actif
+        // Bouton "Tous" pour réinitialiser le filtre
+        var btnTous = document.createElement("button");
+        btnTous.textContent = "Tous";
+        btnTous.className = "btn-filtre actif";
+        btnTous.addEventListener("click", function () {
+            // Au clic : on affiche tous les persos
+            afficherCartes(tousLesPersonnages);
+            // On retire la classe "actif" de tous les boutons
             document.querySelectorAll(".btn-filtre").forEach(function (b) {
                 b.classList.remove("actif");
             });
-            btn.classList.add("actif");
+            btnTous.classList.add("actif");
         });
+        conteneurFiltres.appendChild(btnTous);
 
-        conteneurFiltres.appendChild(btn);
-    });
-}
-/* Cette fonction bascule entre le mode clair et le mode sombre */
-/* Elle est appelée quand on clique sur le bouton lune */
-function basculerMode() {
+        // Un bouton par race
+        racesUniques.forEach(function (race) {
+            var btn = document.createElement("button");
+            btn.textContent = race;
+            btn.className = "btn-filtre";
 
-    /* body.classList.toggle = "si la classe dark est là, enlève-la, sinon ajoute-la" */
-    document.body.classList.toggle("dark");
+            btn.addEventListener("click", function () {
+                // Au clic : on filtre le tableau global par race
+                var filtres = tousLesPersonnages.filter(function (p) {
+                    return p.race === race;
+                });
+                afficherCartes(filtres);
 
-    /* On change l'emoji selon le mode actif */
-    var bouton = document.getElementById("btn-dark");
-    if (document.body.classList.contains("dark")) {
-        bouton.textContent = "☀️";
-    } else {
-        bouton.textContent = "🌙";
+                // Style visuel : bouton actif
+                document.querySelectorAll(".btn-filtre").forEach(function (b) {
+                    b.classList.remove("actif");
+                });
+                btn.classList.add("actif");
+            });
+
+            conteneurFiltres.appendChild(btn);
+        });
     }
-}
+    /* Cette fonction bascule entre le mode clair et le mode sombre */
+    /* Elle est appelée quand on clique sur le bouton lune */
+    function basculerMode() {
+
+        /* body.classList.toggle = "si la classe dark est là, enlève-la, sinon ajoute-la" */
+        document.body.classList.toggle("dark");
+
+        /* On change l'emoji selon le mode actif */
+        var bouton = document.getElementById("btn-dark");
+        if (document.body.classList.contains("dark")) {
+            bouton.textContent = "☀️";
+        } else {
+            bouton.textContent = "🌙";
+        }
+    }
+
+    /* Ouvre le menu mobile en le rendant visible */
+    function ouvrirMenu() {
+        document.getElementById("menu-mobile").style.display = "block";
+    }
+
+    /* Ferme le menu mobile en le cachant */
+    function fermerMenu() {
+        document.getElementById("menu-mobile").style.display = "none";
+    }

@@ -209,3 +209,64 @@ body.dark .carte {
 body.dark .nom-carte {
     color: #e0e0e0;
 }
+
+#btn-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background-color: #1a1a2e;
+    padding: 30px 20px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+#menu-mobile p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.accueil1,
+.catalogue1,
+.mondeck1,
+.video1,
+.contact1 {
+    margin: 0 70px 0 0;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+}
+
+#btn-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .accueil1,
+    .catalogue1,
+    .mondeck1,
+    .video1,
+    .contact1 {
+        display: none;
+    }
+
+    #btn-menu {
+        display: block;
+    }
+}
