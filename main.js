@@ -89,3 +89,18 @@ function creerFiltres(personnages) {
         conteneurFiltres.appendChild(btn);
     });
 }
+/* Cette fonction bascule entre le mode clair et le mode sombre */
+/* Elle est appelée quand on clique sur le bouton lune */
+function basculerMode() {
+
+    /* body.classList.toggle = "si la classe dark est là, enlève-la, sinon ajoute-la" */
+    document.body.classList.toggle("dark");
+
+    /* On change l'emoji selon le mode actif */
+    var bouton = document.getElementById("btn-dark");
+    if (document.body.classList.contains("dark")) {
+        bouton.textContent = "☀️";
+    } else {
+        bouton.textContent = "🌙";
+    }
+}

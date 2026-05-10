@@ -166,3 +166,46 @@ header {
     background: #3b82f6;
     color: white;
 }
+
+/* Bouton dark mode dans le header */
+#btn-dark {
+    margin-left: auto;
+    margin-right: 20px;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+body.dark .hero {
+    background-color: #0f0f1a;
+}
+
+body.dark .hero-titre {
+    color: #f97316;
+}
+
+body.dark .hero-sous-titre {
+    color: #aaaaaa;
+}
+
+/* Quand le body a la classe "dark", tout change de couleur */
+body.dark {
+    background-color: #1a1a2e;
+}
+
+body.dark .titre-catalogue {
+    color: #e0e0e0;
+}
+
+body.dark .carte {
+    background-color: #16213e;
+}
+
+body.dark .nom-carte {
+    color: #e0e0e0;
+}
