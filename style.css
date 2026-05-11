@@ -31,7 +31,50 @@ header {
     font-weight: bold;
 }
 
-/* Section hero avec le personnage et le titre */
+#btn-menu {
+    display: block;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#btn-dark {
+    margin-left: auto;
+    margin-right: 20px;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background-color: #1a1a2e;
+    padding: 30px 20px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+#menu-mobile p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
 .hero {
     display: flex;
     align-items: center;
@@ -59,14 +102,12 @@ header {
     color: #3b82f6;
 }
 
-/* Image du personnage qui flotte */
 .hero-perso {
     height: 350px;
     object-fit: contain;
     animation: flotter 3s ease-in-out infinite;
 }
 
-/* Animation flottante : monte et descend en boucle */
 @keyframes flotter {
     0% {
         transform: translateY(0px);
@@ -81,7 +122,6 @@ header {
     }
 }
 
-/* Titre du catalogue */
 .titre-catalogue {
     text-align: center;
     font-size: 32px;
@@ -90,10 +130,8 @@ header {
     margin: 50px 0 30px 0;
 }
 
-/* Le conteneur des cartes : grille automatique */
-/* grid = disposition en colonnes automatiques */
-/* repeat(auto-fill, 200px) = autant de colonnes de 200px que possible */
-#grille-cartes {
+#grille-cartes,
+#grille-speciaux {
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
     gap: 25px;
@@ -101,7 +139,6 @@ header {
     padding: 20px 40px 60px 40px;
 }
 
-/* Chaque carte individuelle */
 .carte {
     background-color: white;
     border-radius: 12px;
@@ -109,15 +146,12 @@ header {
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    /* animation douce au survol */
 }
 
-/* Au survol : la carte monte légèrement */
 .carte:hover {
     transform: translateY(-6px);
 }
 
-/* L'image dans la carte */
 .carte img {
     width: 100%;
     height: 220px;
@@ -125,7 +159,6 @@ header {
     object-position: top;
 }
 
-/* Le nom du personnage */
 .nom-carte {
     font-size: 15px;
     font-weight: bold;
@@ -133,12 +166,25 @@ header {
     margin: 10px 8px 4px 8px;
 }
 
-/* La race du personnage */
 .race-carte {
     font-size: 13px;
     color: #3b82f6;
     margin: 0 8px 12px 8px;
     font-style: italic;
+}
+
+.carte-speciale {
+    border: 2px solid #f59e0b;
+    position: relative;
+}
+
+.badge-special {
+    background-color: #f59e0b;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-align: center;
 }
 
 #filtres {
@@ -166,108 +212,6 @@ header {
     background: #3b82f6;
     color: white;
 }
-
-/* Bouton dark mode dans le header */
-#btn-dark {
-    margin-left: auto;
-    margin-right: 20px;
-    background: none;
-    border: 2px solid white;
-    color: white;
-    font-size: 20px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-body.dark .hero {
-    background-color: #0f0f1a;
-}
-
-body.dark .hero-titre {
-    color: #f97316;
-}
-
-body.dark .hero-sous-titre {
-    color: #aaaaaa;
-}
-
-/* Quand le body a la classe "dark", tout change de couleur */
-body.dark {
-    background-color: #1a1a2e;
-}
-
-body.dark .titre-catalogue {
-    color: #e0e0e0;
-}
-
-body.dark .carte {
-    background-color: #16213e;
-}
-
-body.dark .nom-carte {
-    color: #e0e0e0;
-}
-
-#btn-menu {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-#menu-mobile {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100%;
-    background-color: #1a1a2e;
-    padding: 30px 20px;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-}
-
-#menu-mobile p {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 20px 0;
-    cursor: pointer;
-}
-
-.accueil1,
-.catalogue1,
-.mondeck1,
-.video1,
-.contact1 {
-    margin: 0 70px 0 0;
-    font-size: 22px;
-    color: white;
-    font-weight: bold;
-}
-
-#btn-menu {
-    display: block;
-    margin-left: 40px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-#btn-menu {
-    display: block;
-}
-
-
 
 .detail-carte {
     display: flex;
@@ -306,15 +250,6 @@ body.dark .nom-carte {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.description-perso {
-    font-size: 15px;
-    color: #444;
-    margin-top: 20px;
-    line-height: 1.6;
-    max-width: 500px;
-    font-style: italic;
 }
 
 .page-contenu {
@@ -368,4 +303,32 @@ body.dark .nom-carte {
 .lien-inscription {
     font-size: 14px;
     color: #666;
+}
+
+body.dark {
+    background-color: #1a1a2e;
+}
+
+body.dark .hero {
+    background-color: #0f0f1a;
+}
+
+body.dark .hero-titre {
+    color: #f97316;
+}
+
+body.dark .hero-sous-titre {
+    color: #aaaaaa;
+}
+
+body.dark .titre-catalogue {
+    color: #e0e0e0;
+}
+
+body.dark .carte {
+    background-color: #16213e;
+}
+
+body.dark .nom-carte {
+    color: #e0e0e0;
 }

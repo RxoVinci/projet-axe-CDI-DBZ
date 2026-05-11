@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tousLesPersonnages = data.items;
             afficherCartes(tousLesPersonnages);
             creerFiltres(tousLesPersonnages);
+            afficherSpeciaux();
         })
         .catch(function (erreur) { console.error("Erreur API : ", erreur); });
 });
@@ -58,13 +59,37 @@ function creerFiltres(personnages) {
     });
 }
 
+function afficherSpeciaux() {
+    var idsSpeciaux = [1, 2, 5, 10];
+    var conteneur = document.getElementById("grille-speciaux");
+    idsSpeciaux.forEach(function (id) {
+        fetch("https://dragonball-api.com/api/characters/" + id)
+            .then(function (response) { return response.json(); })
+            .then(function (perso) {
+                var carte = document.createElement("div");
+                carte.className = "carte carte-speciale";
+                carte.innerHTML =
+                    "<div class='badge-special'>&#11088; Special</div>" +
+                    "<img src='" + perso.image + "' alt='" + perso.name + "'>" +
+                    "<p class='nom-carte'>" + perso.name + "</p>" +
+                    "<p class='race-carte'>" + perso.race + "</p>";
+                carte.addEventListener("click", function () {
+                    window.location.href = "carte.html?id=" + perso.id;
+                });
+                carte.style.cursor = "pointer";
+                conteneur.appendChild(carte);
+            })
+            .catch(function (erreur) { console.error("Erreur : ", erreur); });
+    });
+}
+
 function basculerMode() {
     document.body.classList.toggle("dark");
     var bouton = document.getElementById("btn-dark");
     if (document.body.classList.contains("dark")) {
-        bouton.textContent = "Clair";
+        bouton.innerHTML = "&#9728;";
     } else {
-        bouton.textContent = "Sombre";
+        bouton.innerHTML = "&#127769;";
     }
 }
 

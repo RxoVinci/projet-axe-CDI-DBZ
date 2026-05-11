@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournois</title>
+    <title>Catalogue</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,12 +17,20 @@
         <p class="mondeck1" onclick="window.location.href='decks.html'" style="cursor:pointer">Mon deck</p>
         <p class="video1" onclick="window.location.href='tournois.html'" style="cursor:pointer">Vidéos</p>
         <p class="contact1" onclick="window.location.href='contact.html'" style="cursor:pointer">Contact</p>
-        <button id="btn-dark" onclick="basculerMode()">🌙</button>
+        <button id="btn-dark" onclick="basculerMode()">&#127769;</button>
     </header>
-    <div class="page-contenu">
-        <h2>Tournois</h2>
-        <p class="page-description">Les prochains tournois arrivent bientôt. Préparez vos decks !</p>
+
+    <div id="menu-mobile">
+        <p onclick="fermerMenu()">✕</p>
+        <p onclick="window.location.href='Index.html'">Accueil</p>
+        <p onclick="window.location.href='connexion.html'">Connexion</p>
+        <p onclick="window.location.href='decks.html'">Decks Communauté</p>
+        <p onclick="window.location.href='tournois.html'">Tournois</p>
     </div>
+
+    <div id="filtres"></div>
+    <h2 class="titre-catalogue">Catalogue des personnages</h2>
+    <div id="grille-cartes"></div>
 
     <script src="main.js"></script>
 </body>
